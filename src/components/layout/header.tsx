@@ -12,12 +12,12 @@ import { AnnouncementsMarquee } from '../home/announcements-marquee';
 import type { Announcement } from '@/lib/mock-data';
 
 const navLinks = [
+  { href: '/about', label: 'About' },
   { href: '/publications', label: 'Publications' },
   { href: '/archives', label: 'Archives' },
   { href: '/announcements', label: 'Announcements' },
   { href: '/staff', label: 'Our Team' },
   { href: '/reviews', label: 'Reviews' },
-  { href: '/submit', label: 'Submit' },
 ];
 
 export function Header({ announcements }: { announcements: Announcement[] }) {
@@ -25,14 +25,14 @@ export function Header({ announcements }: { announcements: Announcement[] }) {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto flex h-14 max-w-screen-2xl items-center justify-between px-4 md:px-6">
+      <div className="container mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-4 md:px-6">
         <Logo />
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="transition-colors hover:text-foreground/80 text-foreground/60"
+              className="transition-colors hover:text-primary text-foreground/60"
             >
               {link.label}
             </Link>
@@ -41,11 +41,11 @@ export function Header({ announcements }: { announcements: Announcement[] }) {
         <div className="flex items-center gap-2">
           <ThemeToggle />
            <div className="hidden md:flex items-center gap-2">
-            <Button asChild variant="outline">
-              <Link href="/signup">Sign Up</Link>
-            </Button>
             <Button asChild>
-              <Link href="/login">Login</Link>
+              <Link href="/submit">Submit Manuscript</Link>
+            </Button>
+            <Button asChild variant="outline">
+              <Link href="/login">Author Login</Link>
             </Button>
           </div>
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
@@ -55,7 +55,7 @@ export function Header({ announcements }: { announcements: Announcement[] }) {
                 <span className="sr-only">Open menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+            <SheetContent side="right" className="w-[300px] sm:w-[400px] p-0">
               <div className="flex flex-col h-full">
                 <div className="flex justify-between items-center p-4 border-b">
                    <Logo />
@@ -63,13 +63,13 @@ export function Header({ announcements }: { announcements: Announcement[] }) {
                       <X className="h-6 w-6" />
                    </Button>
                 </div>
-                <div className="flex-1 flex flex-col justify-center">
-                    <nav className="flex flex-col items-center gap-6 text-lg font-medium">
+                <div className="flex-1 flex flex-col justify-center p-4">
+                    <nav className="flex flex-col items-start gap-4 text-lg font-medium">
                     {navLinks.map((link) => (
                         <Link
                         key={link.href}
                         href={link.href}
-                        className="transition-colors hover:text-foreground/80 text-foreground/80"
+                        className="transition-colors hover:text-primary text-foreground/80 w-full p-2 rounded-md hover:bg-secondary"
                         onClick={() => setIsMobileMenuOpen(false)}
                         >
                         {link.label}
@@ -77,12 +77,12 @@ export function Header({ announcements }: { announcements: Announcement[] }) {
                     ))}
                     </nav>
                 </div>
-                 <div className="m-4 flex flex-col gap-2">
-                    <Button asChild onClick={() => setIsMobileMenuOpen(false)}>
-                        <Link href="/login">Login</Link>
+                 <div className="p-4 border-t flex flex-col gap-2">
+                    <Button asChild onClick={() => setIsMobileMenuOpen(false)} size="lg">
+                        <Link href="/submit">Submit Manuscript</Link>
                     </Button>
-                     <Button asChild variant="outline" onClick={() => setIsMobileMenuOpen(false)}>
-                        <Link href="/signup">Sign Up</Link>
+                     <Button asChild variant="outline" onClick={() => setIsMobileMenuOpen(false)} size="lg">
+                        <Link href="/login">Author Login</Link>
                     </Button>
                 </div>
               </div>

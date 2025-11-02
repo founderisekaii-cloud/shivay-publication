@@ -3,14 +3,20 @@
     {
       "id": "hero-banner",
       "description": "A stack of old books on a wooden table.",
-      "imageUrl": "https://images.unsplash.com/photo-1721552008286-0b839c033140?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxib29rcyUyMGxpYnJhcnl8ZW58MHx8fHwxNzYyMDA0NzU4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1524995767968-9b594694bee2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "imageHint": "books library"
     },
     {
       "id": "about-us",
       "description": "A person writing in a notebook with a pen.",
-      "imageUrl": "https://images.unsplash.com/photo-1695389793327-3272851d1508?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx3cml0aW5nJTIwYXV0aG9yfGVufDB8fHx8MTc2MjEwMDYwNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=1973&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "imageHint": "writing author"
+    },
+    {
+      "id": "about-us-page",
+      "description": "A modern and bright library interior.",
+      "imageUrl": "https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageHint": "library interior"
     },
     {
       "id": "staff-1",
@@ -33,19 +39,19 @@
     {
       "id": "pub-1",
       "description": "Book cover for a guide on publishing.",
-      "imageUrl": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxib29rJTIwY292ZXJ8ZW58MHx8fHwxNzYyMDg3MTg0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "imageHint": "book cover"
     },
     {
       "id": "pub-2",
       "description": "Book cover about marketing.",
-      "imageUrl": "https://images.unsplash.com/photo-1644229949318-618cb5bd06fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtYXJrZXRpbmclMjBib29rfGVufDB8fHx8MTc2MjEwMDYwNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "imageHint": "marketing book"
     },
     {
       "id": "pub-3",
       "description": "Book cover about editing.",
-      "imageUrl": "https://images.unsplash.com/photo-1710628331031-f0be52cf3bdb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZWRpdGluZyUyMGJvb2t8ZW58MHx8fHwxNzYyMTAwNjA2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=2098&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "imageHint": "editing book"
     }
   ]

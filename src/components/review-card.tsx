@@ -1,6 +1,6 @@
-import { Star, StarHalf } from 'lucide-react';
+import { Star } from 'lucide-react';
 import type { Review } from '@/lib/mock-data';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from './ui/card';
+import { Card, CardContent, CardFooter, CardHeader } from './ui/card';
 import { formatDate } from '@/lib/utils';
 import { Avatar, AvatarFallback } from './ui/avatar';
 
@@ -9,15 +9,15 @@ interface ReviewCardProps {
 }
 
 const StarRating = ({ rating }: { rating: number }) => {
-  const fullStars = Math.floor(rating);
-  const halfStar = rating % 1 !== 0;
-  const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
-
+  const stars = Array(5).fill(0);
   return (
-    <div className="flex text-accent">
-      {[...Array(fullStars)].map((_, i) => <Star key={`full_${i}`} className="h-5 w-5 fill-current" />)}
-      {halfStar && <StarHalf key="half" className="h-5 w-5 fill-current" />}
-      {[...Array(emptyStars)].map((_, i) => <Star key={`empty_${i}`} className="h-5 w-5 text-muted-foreground/50" />)}
+    <div className="flex text-yellow-400">
+      {stars.map((_, i) => (
+        <Star
+          key={i}
+          className={`h-5 w-5 ${i < rating ? 'fill-current' : 'text-gray-300'}`}
+        />
+      ))}
     </div>
   );
 };
@@ -25,24 +25,22 @@ const StarRating = ({ rating }: { rating: number }) => {
 export function ReviewCard({ review }: ReviewCardProps) {
     const fallback = review.customerName.split(' ').map(n => n[0]).join('');
   return (
-    <Card className="h-full flex flex-col">
+    <Card className="h-full flex flex-col bg-secondary border-transparent shadow-lg hover:shadow-xl transition-shadow duration-300">
       <CardHeader>
-        <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-                <Avatar>
-                    <AvatarFallback>{fallback}</AvatarFallback>
-                </Avatar>
-                <CardTitle className="text-lg font-medium">{review.customerName}</CardTitle>
+        <div className="flex items-center gap-4">
+            <Avatar>
+                <AvatarFallback>{fallback}</AvatarFallback>
+            </Avatar>
+            <div className="flex-1">
+                <p className="text-sm font-semibold text-foreground">{review.customerName}</p>
+                <p className="text-xs text-muted-foreground">{formatDate(review.date)}</p>
             </div>
             <StarRating rating={review.rating} />
         </div>
       </CardHeader>
       <CardContent className="flex-1">
-        <p className="text-muted-foreground italic">&ldquo;{review.comment}&rdquo;</p>
+        <p className="text-muted-foreground text-sm italic">&ldquo;{review.comment}&rdquo;</p>
       </CardContent>
-      <CardFooter>
-        <p className="text-xs text-muted-foreground">{formatDate(review.date)}</p>
-      </CardFooter>
     </Card>
   );
 }
