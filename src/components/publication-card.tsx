@@ -17,24 +17,28 @@ export function PublicationCard({ publication, isService = false }: PublicationC
   return (
     <Card className="flex flex-col h-full overflow-hidden group transition-all hover:shadow-xl hover:-translate-y-1">
       <CardHeader className="p-0">
-        <div className="relative aspect-[3/2] w-full">
-          {coverImage ? (
-            <Image
-              src={coverImage.imageUrl}
-              alt={`Cover of ${publication.title}`}
-              fill
-              className="object-cover"
-              data-ai-hint={coverImage.imageHint}
-            />
-          ) : (
-            <div className="bg-muted w-full h-full flex items-center justify-center">
-                <span className="text-muted-foreground">No Image</span>
-            </div>
-          )}
-        </div>
+        <Link href={isService ? `/about#services` : `/publications/${publication.id}`} className='block w-full'>
+          <div className="relative aspect-[3/2] w-full">
+            {coverImage ? (
+              <Image
+                src={coverImage.imageUrl}
+                alt={`Cover of ${publication.title}`}
+                fill
+                className="object-cover"
+                data-ai-hint={coverImage.imageHint}
+              />
+            ) : (
+              <div className="bg-muted w-full h-full flex items-center justify-center">
+                  <span className="text-muted-foreground">No Image</span>
+              </div>
+            )}
+          </div>
+        </Link>
       </CardHeader>
       <CardContent className="p-4 flex-1">
-        <CardTitle className="font-headline text-xl mb-2 group-hover:text-primary transition-colors">{publication.title}</CardTitle>
+        <Link href={isService ? `/about#services` : `/publications/${publication.id}`}>
+          <CardTitle className="font-headline text-xl mb-2 group-hover:text-primary transition-colors">{publication.title}</CardTitle>
+        </Link>
         <CardDescription className="text-sm">{publication.description}</CardDescription>
       </CardContent>
       <CardFooter className="p-4 pt-0">

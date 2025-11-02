@@ -13,6 +13,8 @@ import type { Announcement } from '@/lib/mock-data';
 
 const navLinks = [
   { href: '/publications', label: 'Publications' },
+  { href: '/archives', label: 'Archives' },
+  { href: '/announcements', label: 'Announcements' },
   { href: '/staff', label: 'Our Team' },
   { href: '/reviews', label: 'Reviews' },
   { href: '/submit', label: 'Submit' },
