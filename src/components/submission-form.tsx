@@ -27,7 +27,7 @@ const submissionSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
   email: z.string().email({ message: "Please enter a valid email." }),
   title: z.string().min(3, { message: "Title must be at least 3 characters." }),
-  manuscript: z.instanceof(FileList).refine(files => files?.length === 1, "A manuscript file is required."),
+  manuscript: z.any().refine(files => files?.length === 1, "A manuscript file is required."),
   comments: z.string().optional(),
 });
 
@@ -56,20 +56,12 @@ export function SubmissionForm() {
 
     if (!isFirebaseEnabled || !firebaseStorage) {
       // Demo mode
-      let progress = 0;
-      const interval = setInterval(() => {
-        progress += Math.random() * 20;
-        setUploadProgress(Math.min(progress, 100));
-        if (progress >= 100) {
-          clearInterval(interval);
-          setIsSubmitting(false);
-          toast({
-            title: "Submission Sent (Demo)",
-            description: "Your manuscript has been successfully submitted in demo mode.",
-          });
-          form.reset();
-        }
-      }, 300);
+      toast({
+        variant: "destructive",
+        title: "Firebase Not Configured",
+        description: "Live submission is not available. Please ensure Firebase is set up correctly.",
+      });
+      setIsSubmitting(false);
       return;
     }
     
@@ -94,7 +86,7 @@ export function SubmissionForm() {
                 toast({
                     variant: "destructive",
                     title: "Upload Failed",
-                    description: "Something went wrong while uploading your file. Please try again."
+                    description: "This is likely a CORS issue. Please follow the setup guide for Firebase Storage."
                 });
                 setIsSubmitting(false);
             },
@@ -103,7 +95,6 @@ export function SubmissionForm() {
                 console.log('File available at', downloadURL);
 
                 // TODO: Here you would typically save the submission data (including downloadURL) to Firestore.
-                // Since Firestore permissions are still pending, we will just show a success message.
                 
                 toast({
                     title: "Submission Successful!",
@@ -228,5 +219,3 @@ export function SubmissionForm() {
     </Card>
   );
 }
-
-    
