@@ -2,51 +2,51 @@
   "placeholderImages": [
     {
       "id": "hero-banner",
-      "description": "A grand library with warm lighting",
-      "imageUrl": "https://images.unsplash.com/photo-1568667256531-7d5ac92eaa7a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxsaWJyYXJ5JTIwYm9va3N8ZW58MHx8fHwxNzYyMDY3NTUzfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "library books"
+      "description": "A stack of old books on a wooden table.",
+      "imageUrl": "https://images.unsplash.com/photo-1721552008286-0b839c033140?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxib29rcyUyMGxpYnJhcnl8ZW58MHx8fHwxNzYyMDA0NzU4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "books library"
     },
     {
       "id": "about-us",
-      "description": "A close-up of an old printing press",
-      "imageUrl": "https://images.unsplash.com/photo-1603204254626-d0de8eb24cf1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwcmludGluZyUyMHByZXNzfGVufDB8fHx8MTc2MjAzMzM3OHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "printing press"
+      "description": "A person writing in a notebook with a pen.",
+      "imageUrl": "https://images.unsplash.com/photo-1695389793327-3272851d1508?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx3cml0aW5nJTIwYXV0aG9yfGVufDB8fHx8MTc2MjEwMDYwNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "writing author"
     },
     {
       "id": "staff-1",
-      "description": "Profile picture of a staff member",
-      "imageUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjIwNzUxNzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "professional portrait"
+      "description": "Portrait of Adv. Hardik Goradiya",
+      "imageUrl": "https://shivaypublications.com/wp-content/uploads/2024/04/h1-transformed.png",
+      "imageHint": "male founder"
     },
     {
       "id": "staff-2",
-      "description": "Profile picture of a staff member",
-      "imageUrl": "https://images.unsplash.com/photo-1573497019236-17f8177b81e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjB3b21hbnxlbnwwfHx8fDE3NjIwMDczOTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "professional woman"
+      "description": "Portrait of Mrs. Nilam H. Goradiya",
+      "imageUrl": "https://shivaypublications.com/wp-content/uploads/2024/04/n-transformed.png",
+      "imageHint": "female co-founder"
     },
     {
       "id": "staff-3",
-      "description": "Profile picture of a staff member",
-      "imageUrl": "https://images.unsplash.com/photo-1621624666561-84d0107001dc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxtYW4lMjBzbWlsaW5nfGVufDB8fHx8MTc2MjAzNDI3NXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "man smiling"
+      "description": "Portrait of Ms. Khushboo Bidawatka",
+      "imageUrl": "https://shivaypublications.com/wp-content/uploads/2024/04/k-transformed.png",
+      "imageHint": "professional woman"
     },
     {
       "id": "pub-1",
-      "description": "Book cover for 'The Crimson Legacy'",
-      "imageUrl": "https://images.unsplash.com/photo-1711185892320-5ca2641b253e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxmYW50YXN5JTIwYm9va3xlbnwwfHx8fDE3NjIwMjM1Njh8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "fantasy book"
+      "description": "Book cover for a guide on publishing.",
+      "imageUrl": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxib29rJTIwY292ZXJ8ZW58MHx8fHwxNzYyMDg3MTg0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "book cover"
     },
     {
       "id": "pub-2",
-      "description": "Book cover for 'Echoes of the Past'",
-      "imageUrl": "https://images.unsplash.com/photo-1613324766451-2d03b2ea8190?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxoaXN0b3J5JTIwYm9va3xlbnwwfHx8fDE3NjIwOTA2MTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "history book"
+      "description": "Book cover about marketing.",
+      "imageUrl": "https://images.unsplash.com/photo-1644229949318-618cb5bd06fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtYXJrZXRpbmclMjBib29rfGVufDB8fHx8MTc2MjEwMDYwNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "marketing book"
     },
     {
       "id": "pub-3",
-      "description": "Book cover for 'The Alchemist's Secret'",
-      "imageUrl": "https://images.unsplash.com/photo-1748465414055-81bbb812c8d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxteXN0ZXJ5JTIwYm9va3xlbnwwfHx8fDE3NjIwNTc2Njd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "mystery book"
+      "description": "Book cover about editing.",
+      "imageUrl": "https://images.unsplash.com/photo-1710628331031-f0be52cf3bdb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZWRpdGluZyUyMGJvb2t8ZW58MHx8fHwxNzYyMTAwNjA2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "editing book"
     }
   ]
 }
