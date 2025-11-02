@@ -8,12 +8,14 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowLeft, Download, Eye } from "lucide-react";
 import { formatDate } from "@/lib/utils";
+import type { Metadata, ResolvingMetadata } from 'next'
 
 type PublicationDetailPageProps = {
     params: { id: string };
+    searchParams: { [key: string]: string | string[] | undefined };
 };
 
-export async function generateMetadata({ params }: PublicationDetailPageProps) {
+export async function generateMetadata({ params }: PublicationDetailPageProps, parent: ResolvingMetadata): Promise<Metadata> {
     const publications = await getPublications();
     const publication = publications.find(p => p.id === params.id);
 
