@@ -10,7 +10,12 @@ import { ArrowLeft, Download, Eye } from "lucide-react";
 import { formatDate } from "@/lib/utils";
 import type { Metadata } from 'next'
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+type Props = {
+    params: { id: string };
+    searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const publications = await getPublications();
     const publication = publications.find(p => p.id === params.id);
 
@@ -26,7 +31,7 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
     };
 }
 
-export default async function PublicationDetailPage({ params }: { params: { id: string } }) {
+export default async function PublicationDetailPage({ params }: Props) {
     const publications = await getPublications();
     const publication = publications.find(p => p.id === params.id);
 
