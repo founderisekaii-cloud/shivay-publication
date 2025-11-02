@@ -24,14 +24,14 @@ export function HeroSection() {
         <div className="container mx-auto px-4 md:px-6 text-center text-foreground">
           <div className="bg-background/80 backdrop-blur-sm rounded-lg p-8 max-w-3xl mx-auto">
             <h1 className="font-headline text-4xl md:text-6xl font-bold !leading-tight tracking-tighter">
-              Where Words Find Their Voice
+              Your Trusted Partner in Publishing
             </h1>
             <p className="mt-4 max-w-xl mx-auto text-lg text-muted-foreground">
               Shivay Publications is dedicated to nurturing new talent and bringing captivating stories to readers worldwide.
             </p>
             <Button asChild size="lg" className="mt-8 group">
               <Link href="/publications">
-                Explore Our Collection
+                Explore Our Services
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>

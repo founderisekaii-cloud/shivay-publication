@@ -1,19 +1,19 @@
 import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardDescription } from "../ui/card";
-import { BookOpen, Archive, Send, Pencil } from "lucide-react";
+import { BookOpen, Archive, Send, Pencil, Mail } from "lucide-react";
 
 const links = [
     {
-        href: "/services",
+        href: "/about#services",
         title: "Our Services",
-        description: "Editing, publishing, and more.",
+        description: "Editing, Publishing, and more.",
         icon: Pencil,
     },
     {
-        href: "/archives",
-        title: "Archives",
-        description: "Explore our past publications.",
-        icon: Archive,
+        href: "/publications",
+        title: "Our Publications",
+        description: "Explore books we have published.",
+        icon: BookOpen,
     },
     {
         href: "/submit",
@@ -22,10 +22,10 @@ const links = [
         icon: Send,
     },
     {
-        href: "/contact",
+        href: "/about#contact",
         title: "Contact Us",
         description: "Get in touch with our team.",
-        icon: BookOpen,
+        icon: Mail,
     }
 ]
 

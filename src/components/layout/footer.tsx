@@ -13,16 +13,16 @@ export function Footer() {
           <div className="space-y-4">
             <Logo />
             <p className="text-sm text-muted-foreground">
-              Dedicated to bringing timeless stories and essential knowledge to readers everywhere.
+             Your trusted partner in publishing. We help authors bring their stories to life.
             </p>
           </div>
           <div className="space-y-2">
             <h4 className="font-headline font-semibold">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               <li><Link href="/about" className="text-muted-foreground hover:text-primary">About Us</Link></li>
-              <li><Link href="/contact" className="text-muted-foreground hover:text-primary">Contact</Link></li>
-              <li><Link href="/services" className="text-muted-foreground hover:text-primary">Services</Link></li>
-              <li><Link href="/archives" className="text-muted-foreground hover:text-primary">Archives</Link></li>
+              <li><Link href="/about#contact" className="text-muted-foreground hover:text-primary">Contact</Link></li>
+              <li><Link href="/about#services" className="text-muted-foreground hover:text-primary">Services</Link></li>
+              <li><Link href="/publications" className="text-muted-foreground hover:text-primary">Publications</Link></li>
             </ul>
           </div>
           <div className="space-y-4">

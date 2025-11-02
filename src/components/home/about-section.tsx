@@ -12,10 +12,10 @@ export function AboutSection() {
         <div className="space-y-4">
           <h2 className="font-headline text-3xl md:text-4xl font-bold">About Shivay Publications</h2>
           <p className="text-muted-foreground text-lg">
-            Founded in 2010, Shivay Publications has been a cornerstone of literary excellence, committed to discovering unique voices and sharing powerful stories. We believe in the transformative power of books and are dedicated to publishing works that inspire, entertain, and enlighten.
+            Shivay Publications is one of the fastest growing self-publishing platforms in India. We are a team of professionals dedicated to providing the best services to our authors, having published over 2,000 books across various genres and languages.
           </p>
           <p className="text-muted-foreground">
-            Our mission is to bridge the gap between talented authors and avid readers, ensuring that every manuscript gets the attention it deserves. From rigorous editing to beautiful design and strategic marketing, we support our authors every step of the way.
+            Our mission is to empower authors by providing a comprehensive suite of services including editing, cover design, ISBN allocation, marketing, and a strong distribution network in India and worldwide.
           </p>
           <Button asChild variant="outline">
             <Link href="/about">Learn More</Link>
