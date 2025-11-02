@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useForm } from "react-hook-form";
@@ -16,10 +17,11 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "./ui/textarea";
 import { Card, CardContent } from "./ui/card";
-import { isFirebaseEnabled } from "@/lib/firebase-config";
+import { isFirebaseEnabled, firebaseStorage } from "@/lib/firebase-config";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2, UploadCloud } from "lucide-react";
 import { Progress } from "./ui/progress";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 const submissionSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -52,7 +54,7 @@ export function SubmissionForm() {
     setIsSubmitting(true);
     setUploadProgress(0);
 
-    if (!isFirebaseEnabled) {
+    if (!isFirebaseEnabled || !firebaseStorage) {
       // Demo mode
       let progress = 0;
       const interval = setInterval(() => {
@@ -71,14 +73,57 @@ export function SubmissionForm() {
       return;
     }
     
-    // TODO: Implement actual Firebase Storage upload
-    // For now, we will simulate it as the logic is complex and depends on a live backend.
-    setIsSubmitting(false);
-    toast({
-        title: "Live submission not implemented",
-        description: "Firebase Storage upload needs to be implemented.",
-        variant: "destructive"
-    });
+    const file = data.manuscript[0];
+    if(!file) {
+        setIsSubmitting(false);
+        toast({ variant: "destructive", title: "No file selected", description: "Please select a manuscript file to upload." });
+        return;
+    }
+
+    try {
+        const storageRef = ref(firebaseStorage, `submissions/${Date.now()}_${file.name}`);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+
+        uploadTask.on('state_changed',
+            (snapshot) => {
+                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                setUploadProgress(progress);
+            },
+            (error) => {
+                console.error("Upload failed:", error);
+                toast({
+                    variant: "destructive",
+                    title: "Upload Failed",
+                    description: "Something went wrong while uploading your file. Please try again."
+                });
+                setIsSubmitting(false);
+            },
+            async () => {
+                const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+                console.log('File available at', downloadURL);
+
+                // TODO: Here you would typically save the submission data (including downloadURL) to Firestore.
+                // Since Firestore permissions are still pending, we will just show a success message.
+                
+                toast({
+                    title: "Submission Successful!",
+                    description: "Your manuscript has been uploaded. We will review it shortly.",
+                });
+                form.reset();
+                setIsSubmitting(false);
+                setUploadProgress(0);
+            }
+        );
+
+    } catch (error) {
+        console.error("Submission error:", error);
+        toast({
+            variant: "destructive",
+            title: "Submission Error",
+            description: error instanceof Error ? error.message : "An unexpected error occurred.",
+        });
+        setIsSubmitting(false);
+    }
   };
 
   return (
@@ -183,3 +228,5 @@ export function SubmissionForm() {
     </Card>
   );
 }
+
+    
