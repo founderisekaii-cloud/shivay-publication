@@ -55,7 +55,6 @@ export function SubmissionForm() {
     setUploadProgress(0);
 
     if (!isFirebaseEnabled || !firebaseStorage) {
-      // Demo mode
       toast({
         variant: "destructive",
         title: "Firebase Not Configured",
@@ -83,18 +82,22 @@ export function SubmissionForm() {
             },
             (error) => {
                 console.error("Upload failed:", error);
+                let description = "An unknown error occurred during upload.";
+                if (error.code === 'storage/unauthorized') {
+                    description = "Permission denied. Please check Firebase Storage rules and CORS settings.";
+                } else if (error.code === 'storage/canceled') {
+                    description = "Upload was canceled.";
+                }
                 toast({
                     variant: "destructive",
                     title: "Upload Failed",
-                    description: "This is likely a CORS issue. Please follow the setup guide for Firebase Storage."
+                    description: description
                 });
                 setIsSubmitting(false);
             },
             async () => {
                 const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
                 console.log('File available at', downloadURL);
-
-                // TODO: Here you would typically save the submission data (including downloadURL) to Firestore.
                 
                 toast({
                     title: "Submission Successful!",
