@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "./ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
+import { isFirebaseEnabled } from "@/lib/firebase-config";
 
 const loginSchema = z.object({
   email: z.string().email({ message: "Please enter a valid email." }),
@@ -118,9 +119,11 @@ export function AuthForm({ type }: AuthFormProps) {
                 type === 'login' ? 'Login' : 'Create Account'
               )}
             </Button>
+            {!isFirebaseEnabled && (
              <p className="text-xs text-center text-muted-foreground">
                 Note: Running in demo mode. No account will be created.
               </p>
+            )}
           </form>
         </Form>
       </CardContent>
