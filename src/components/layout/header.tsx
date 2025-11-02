@@ -38,9 +38,14 @@ export function Header({ announcements }: { announcements: Announcement[] }) {
         </nav>
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <Button asChild className="hidden md:inline-flex">
-            <Link href="/login">Login</Link>
-          </Button>
+           <div className="hidden md:flex items-center gap-2">
+            <Button asChild variant="outline">
+              <Link href="/signup">Sign Up</Link>
+            </Button>
+            <Button asChild>
+              <Link href="/login">Login</Link>
+            </Button>
+          </div>
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="md:hidden">
@@ -70,9 +75,14 @@ export function Header({ announcements }: { announcements: Announcement[] }) {
                     ))}
                     </nav>
                 </div>
-                 <Button asChild className="m-4">
-                    <Link href="/login" onClick={() => setIsMobileMenuOpen(false)}>Login</Link>
-                </Button>
+                 <div className="m-4 flex flex-col gap-2">
+                    <Button asChild onClick={() => setIsMobileMenuOpen(false)}>
+                        <Link href="/login">Login</Link>
+                    </Button>
+                     <Button asChild variant="outline" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Link href="/signup">Sign Up</Link>
+                    </Button>
+                </div>
               </div>
             </SheetContent>
           </Sheet>
