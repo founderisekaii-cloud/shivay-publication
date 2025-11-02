@@ -3,8 +3,9 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import {
   Form,
   FormControl,
@@ -19,7 +20,8 @@ import { Card, CardContent, CardFooter } from "./ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
 import { isFirebaseEnabled } from "@/lib/firebase-config";
-import { signInUser, signUpUser } from "@/lib/auth";
+import { signInUser, signUpUser, getAuthState } from "@/lib/auth";
+import type { User } from "firebase/auth";
 
 const loginSchema = z.object({
   email: z.string().email({ message: "Please enter a valid email." }),
@@ -39,6 +41,20 @@ type AuthFormProps = {
 export function AuthForm({ type }: AuthFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const router = useRouter();
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    if (isFirebaseEnabled) {
+      return getAuthState((user) => {
+        if (user) {
+          router.push('/dashboard');
+        }
+        setUser(user);
+      });
+    }
+  }, [router]);
+
 
   const schema = type === 'login' ? loginSchema : signupSchema;
   type FormValues = z.infer<typeof schema>;
@@ -59,9 +75,10 @@ export function AuthForm({ type }: AuthFormProps) {
       setIsSubmitting(false);
       toast({
         title: type === 'login' ? "Login Successful (Demo)" : "Signup Successful (Demo)",
-        description: type === 'login' ? "Redirecting to your dashboard..." : "You can now log in.",
+        description: type === 'login' ? "Redirecting to your dashboard..." : "Redirecting to dashboard...",
       });
       form.reset();
+      router.push('/dashboard');
       return;
     }
 
@@ -71,18 +88,17 @@ export function AuthForm({ type }: AuthFormProps) {
         await signUpUser(email, password, name);
         toast({
           title: "Signup Successful!",
-          description: "Your account has been created. You can now log in.",
+          description: "Welcome! Redirecting to your dashboard...",
         });
       } else {
         const { email, password } = data as z.infer<typeof loginSchema>;
         await signInUser(email, password);
         toast({
           title: "Login Successful!",
-          description: "Welcome back!",
+          description: "Welcome back! Redirecting...",
         });
-        // You would typically redirect the user here, e.g., router.push('/dashboard')
       }
-      form.reset();
+      router.push('/dashboard');
     } catch (error) {
       toast({
         variant: "destructive",
@@ -93,6 +109,10 @@ export function AuthForm({ type }: AuthFormProps) {
       setIsSubmitting(false);
     }
   };
+
+  if (user) {
+    return null; // Don't render the form if the user is already logged in
+  }
 
   return (
     <Card>
