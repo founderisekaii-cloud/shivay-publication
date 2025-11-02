@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { FirebaseErrorListener } from "./FirebaseErrorListener";
 
 type Theme = "dark" | "light" | "system";
 
@@ -53,6 +54,7 @@ function ThemeProvider({
 
   return (
     <ThemeProviderContext.Provider value={value}>
+      <FirebaseErrorListener />
       {children}
     </ThemeProviderContext.Provider>
   );
